@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail, Briefcase, FolderGit2, Award } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import { AnimatedSection } from "./AnimatedSection";
 
 const stats = [
   { label: "Years Experience", value: "1+", icon: Briefcase },
@@ -19,41 +20,43 @@ export const HeroSection = () => {
     <section className="py-8 sm:py-12 lg:py-16 px-4 border-b border-border">
       <div className="container max-w-6xl">
         {/* Header - Google Docs Style */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6 sm:mb-8 pb-6 border-b border-border">
-          <Avatar className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-primary shrink-0">
-            <AvatarImage src="/placeholder.svg" alt="Akshit Negi" />
-            <AvatarFallback className="bg-primary/10 text-primary text-lg sm:text-xl font-medium">
-              AN
-            </AvatarFallback>
-          </Avatar>
-          <div className="flex-1 min-w-0">
-            <h1 className="font-display text-xl sm:text-2xl font-medium text-foreground">
-              Akshit Negi
-            </h1>
-            <p className="text-primary font-medium text-sm sm:text-base">
-              Software Developer • AI/ML Engineer
-            </p>
+        <AnimatedSection animation="fade-up">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6 sm:mb-8 pb-6 border-b border-border">
+            <Avatar className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-primary shrink-0">
+              <AvatarImage src="/placeholder.svg" alt="Akshit Negi" />
+              <AvatarFallback className="bg-primary/10 text-primary text-lg sm:text-xl font-medium">
+                AN
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex-1 min-w-0">
+              <h1 className="font-display text-xl sm:text-2xl font-medium text-foreground">
+                Akshit Negi
+              </h1>
+              <p className="text-primary font-medium text-sm sm:text-base">
+                Software Developer • AI/ML Engineer
+              </p>
+            </div>
+            <div className="flex gap-2 sm:ml-auto">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
+                  aria-label={label}
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
           </div>
-          <div className="flex gap-2 sm:ml-auto">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
-                aria-label={label}
-              >
-                <Icon className="w-5 h-5" />
-              </a>
-            ))}
-          </div>
-        </div>
+        </AnimatedSection>
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Left - Description */}
-          <div className="lg:col-span-2">
+          <AnimatedSection className="lg:col-span-2" animation="fade-up" delay={100}>
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium text-foreground mb-4">
               Building intelligent software solutions
             </h2>
@@ -66,32 +69,33 @@ export const HeroSection = () => {
               Currently working as an Associate Analyst at Highspring India LLP, 
               developing evaluation frameworks for Google's LLM outputs.
             </p>
-          </div>
+          </AnimatedSection>
 
           {/* Right - Stats */}
-          <div className="space-y-4">
-            <h3 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wide">
-              Quick Stats
-            </h3>
-            <div className="grid grid-cols-3 lg:grid-cols-1 gap-3">
-              {stats.map(({ label, value, icon: Icon }) => (
-                <Card 
-                  key={label} 
-                  className="border border-border bg-card hover:shadow-sm transition-shadow duration-200"
-                >
-                  <CardContent className="p-3 sm:p-4 flex flex-col lg:flex-row items-center lg:items-center gap-2 lg:gap-4 text-center lg:text-left">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-xl sm:text-2xl font-medium text-foreground">{value}</div>
-                      <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+          <AnimatedSection animation="fade-up" delay={200}>
+            <div className="space-y-4">
+              <h3 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wide">
+                Quick Stats
+              </h3>
+              <div className="grid grid-cols-3 lg:grid-cols-1 gap-3">
+                {stats.map(({ label, value, icon: Icon }, index) => (
+                  <AnimatedSection key={label} animation="scale" delay={300 + index * 100}>
+                    <Card className="border border-border bg-card hover:shadow-sm transition-shadow duration-200">
+                      <CardContent className="p-3 sm:p-4 flex flex-col lg:flex-row items-center lg:items-center gap-2 lg:gap-4 text-center lg:text-left">
+                        <div className="p-2 rounded-lg bg-primary/10">
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                        </div>
+                        <div>
+                          <div className="text-xl sm:text-2xl font-medium text-foreground">{value}</div>
+                          <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                ))}
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
