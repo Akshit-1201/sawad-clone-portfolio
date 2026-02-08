@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail, Briefcase, FolderGit2, Award } from "lucide-rea
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedSection } from "./AnimatedSection";
+import avatar3d from "@/assets/avatar-3d.png";
 
 const stats = [
   { label: "Years Experience", value: "1+", icon: Briefcase },
@@ -22,8 +23,8 @@ export const HeroSection = () => {
         {/* Header - Google Docs Style */}
         <AnimatedSection animation="fade-up">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6 sm:mb-8 pb-6 border-b border-border">
-            <Avatar className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-primary shrink-0">
-              <AvatarImage src="/placeholder.svg" alt="Akshit Negi" />
+            <Avatar className="w-16 h-16 sm:w-20 sm:h-20 border-2 border-primary shrink-0 shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 hover:scale-105">
+              <AvatarImage src={avatar3d} alt="Akshit Negi" className="object-cover" />
               <AvatarFallback className="bg-primary/10 text-primary text-lg sm:text-xl font-medium">
                 AN
               </AvatarFallback>
