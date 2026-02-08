@@ -1,5 +1,4 @@
 import { Github, Linkedin, Mail, Briefcase, FolderGit2, Award } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedSection } from "./AnimatedSection";
 import avatar3d from "@/assets/avatar-3d.png";
@@ -22,13 +21,12 @@ export const HeroSection = () => {
       <div className="container max-w-6xl">
         {/* Header - Google Docs Style */}
         <AnimatedSection animation="fade-up">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6 sm:mb-8 pb-6 border-b border-border">
-            <Avatar className="w-16 h-16 sm:w-20 sm:h-20 border-2 border-primary shrink-0 shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 hover:scale-105">
-              <AvatarImage src={avatar3d} alt="Akshit Negi" className="object-cover" />
-              <AvatarFallback className="bg-primary/10 text-primary text-lg sm:text-xl font-medium">
-                AN
-              </AvatarFallback>
-            </Avatar>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-6 sm:mb-8 pb-6 border-b border-border">
+            <img 
+              src={avatar3d} 
+              alt="Akshit Negi" 
+              className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 object-contain shrink-0 drop-shadow-xl hover:scale-105 transition-transform duration-300"
+            />
             <div className="flex-1 min-w-0">
               <h1 className="font-display text-xl sm:text-2xl font-medium text-foreground">
                 Akshit Negi
