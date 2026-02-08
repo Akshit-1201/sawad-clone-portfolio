@@ -8,7 +8,8 @@ import {
   Server, 
   Sparkles,
   Brain,
-  Layers
+  Layers,
+  Wrench
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -27,27 +28,29 @@ const tools = [
 
 export const TechStack = () => {
   return (
-    <section className="py-20 px-4" id="tech-stack">
+    <section className="py-16 px-4 border-b border-border" id="tech-stack">
       <div className="container max-w-6xl">
-        <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Premium <span className="gradient-text">Tools</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-2">
+            <Wrench className="w-6 h-6 text-primary" />
+            <h2 className="text-2xl font-medium text-foreground">
+              Tools & Technologies
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-sm ml-9">
             Technologies and frameworks I use to build scalable solutions.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {tools.map((tool, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 ml-9">
+          {tools.map((tool) => (
             <Card
               key={tool.name}
-              className="glass border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 group animate-fade-in-up"
-              style={{ animationDelay: `${0.05 * (index + 1)}s` }}
+              className="border border-border bg-card hover:shadow-sm hover:border-primary/30 transition-all duration-200 group"
             >
               <CardContent className="p-4 text-center">
-                <tool.icon className="w-8 h-8 mx-auto mb-3 text-primary group-hover:scale-110 transition-transform" />
-                <h3 className="font-semibold text-sm mb-1 group-hover:text-primary transition-colors">
+                <tool.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
+                <h3 className="font-medium text-sm text-foreground mb-0.5">
                   {tool.name}
                 </h3>
                 <p className="text-xs text-muted-foreground">{tool.category}</p>

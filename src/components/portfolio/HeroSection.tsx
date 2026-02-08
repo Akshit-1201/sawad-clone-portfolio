@@ -16,73 +16,75 @@ const socialLinks = [
 
 export const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20">
+    <section className="py-16 px-4 border-b border-border">
       <div className="container max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Side - Profile Card */}
-          <div className="animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            <Card className="glass border-border/50 overflow-hidden">
-              <CardContent className="p-8">
-                <div className="flex flex-col items-center text-center">
-                  <Avatar className="w-32 h-32 mb-6 ring-4 ring-primary/20">
-                    <AvatarImage src="/placeholder.svg" alt="Akshit Negi" />
-                    <AvatarFallback className="bg-primary/10 text-primary text-3xl font-bold">
-                      AN
-                    </AvatarFallback>
-                  </Avatar>
-                  
-                  <h1 className="text-3xl font-bold mb-2">Akshit Negi</h1>
-                  <p className="text-lg text-primary font-medium mb-4">
-                    AI Engineer who builds ML solutions from 0→1→100
-                  </p>
-                  
-                  <div className="flex gap-4 mt-4">
-                    {socialLinks.map(({ icon: Icon, href, label }) => (
-                      <a
-                        key={label}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-                        aria-label={label}
-                      >
-                        <Icon className="w-5 h-5" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+        {/* Header - Google Docs Style */}
+        <div className="flex items-center gap-4 mb-8 pb-6 border-b border-border">
+          <Avatar className="w-16 h-16 border-2 border-primary">
+            <AvatarImage src="/placeholder.svg" alt="Akshit Negi" />
+            <AvatarFallback className="bg-primary/10 text-primary text-xl font-medium">
+              AN
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <h1 className="text-2xl font-medium text-foreground">Akshit Negi</h1>
+            <p className="text-primary font-medium">
+              Software Developer • AI/ML Engineer
+            </p>
+          </div>
+          <div className="flex gap-2 ml-auto">
+            {socialLinks.map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
+                aria-label={label}
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Left - Description */}
+          <div className="lg:col-span-2">
+            <h2 className="text-4xl font-medium text-foreground mb-4">
+              Building intelligent software solutions
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              Software Developer specializing in AI and Machine Learning. I bring ideas 
+              to life through data—from building ML models from scratch to scaling them 
+              into real-time production systems that make a measurable difference.
+            </p>
+            <p className="text-muted-foreground">
+              Currently working as an Associate Analyst at Highspring India LLP, 
+              developing evaluation frameworks for Google's LLM outputs.
+            </p>
           </div>
 
-          {/* Right Side - Title & Stats */}
-          <div className="space-y-8">
-            <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-              <h2 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="gradient-text">AI ENGINEER</span>
-                <br />
-                <span className="text-muted-foreground text-3xl lg:text-4xl font-normal">
-                  & Data Analyst
-                </span>
-              </h2>
-              
-              <p className="text-lg text-muted-foreground mt-6 leading-relaxed max-w-lg">
-                Bringing ideas to life through data—from building ML models from scratch 
-                to scaling them into real-time solutions that make a difference.
-              </p>
-            </div>
-
-            {/* Stat Cards */}
-            <div className="grid grid-cols-3 gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          {/* Right - Stats */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
+              Quick Stats
+            </h3>
+            <div className="space-y-3">
               {stats.map(({ label, value, icon: Icon }) => (
                 <Card 
                   key={label} 
-                  className="glass border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 group"
+                  className="border border-border bg-card hover:shadow-sm transition-shadow duration-200"
                 >
-                  <CardContent className="p-4 text-center">
-                    <Icon className="w-6 h-6 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform" />
-                    <div className="text-2xl lg:text-3xl font-bold gradient-text">{value}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{label}</div>
+                  <CardContent className="p-4 flex items-center gap-4">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-medium text-foreground">{value}</div>
+                      <div className="text-sm text-muted-foreground">{label}</div>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
