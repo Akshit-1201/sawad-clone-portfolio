@@ -16,23 +16,25 @@ const socialLinks = [
 
 export const HeroSection = () => {
   return (
-    <section className="py-16 px-4 border-b border-border">
+    <section className="py-8 sm:py-12 lg:py-16 px-4 border-b border-border">
       <div className="container max-w-6xl">
         {/* Header - Google Docs Style */}
-        <div className="flex items-center gap-4 mb-8 pb-6 border-b border-border">
-          <Avatar className="w-16 h-16 border-2 border-primary">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6 sm:mb-8 pb-6 border-b border-border">
+          <Avatar className="w-14 h-14 sm:w-16 sm:h-16 border-2 border-primary shrink-0">
             <AvatarImage src="/placeholder.svg" alt="Akshit Negi" />
-            <AvatarFallback className="bg-primary/10 text-primary text-xl font-medium">
+            <AvatarFallback className="bg-primary/10 text-primary text-lg sm:text-xl font-medium">
               AN
             </AvatarFallback>
           </Avatar>
-          <div>
-            <h1 className="text-2xl font-medium text-foreground">Akshit Negi</h1>
-            <p className="text-primary font-medium">
+          <div className="flex-1 min-w-0">
+            <h1 className="font-display text-xl sm:text-2xl font-medium text-foreground">
+              Akshit Negi
+            </h1>
+            <p className="text-primary font-medium text-sm sm:text-base">
               Software Developer • AI/ML Engineer
             </p>
           </div>
-          <div className="flex gap-2 ml-auto">
+          <div className="flex gap-2 sm:ml-auto">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
@@ -49,18 +51,18 @@ export const HeroSection = () => {
         </div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Left - Description */}
           <div className="lg:col-span-2">
-            <h2 className="text-4xl font-medium text-foreground mb-4">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium text-foreground mb-4">
               Building intelligent software solutions
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
               Software Developer specializing in AI and Machine Learning. I bring ideas 
               to life through data—from building ML models from scratch to scaling them 
               into real-time production systems that make a measurable difference.
             </p>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Currently working as an Associate Analyst at Highspring India LLP, 
               developing evaluation frameworks for Google's LLM outputs.
             </p>
@@ -68,22 +70,22 @@ export const HeroSection = () => {
 
           {/* Right - Stats */}
           <div className="space-y-4">
-            <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
+            <h3 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wide">
               Quick Stats
             </h3>
-            <div className="space-y-3">
+            <div className="grid grid-cols-3 lg:grid-cols-1 gap-3">
               {stats.map(({ label, value, icon: Icon }) => (
                 <Card 
                   key={label} 
                   className="border border-border bg-card hover:shadow-sm transition-shadow duration-200"
                 >
-                  <CardContent className="p-4 flex items-center gap-4">
+                  <CardContent className="p-3 sm:p-4 flex flex-col lg:flex-row items-center lg:items-center gap-2 lg:gap-4 text-center lg:text-left">
                     <div className="p-2 rounded-lg bg-primary/10">
-                      <Icon className="w-5 h-5 text-primary" />
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     </div>
                     <div>
-                      <div className="text-2xl font-medium text-foreground">{value}</div>
-                      <div className="text-sm text-muted-foreground">{label}</div>
+                      <div className="text-xl sm:text-2xl font-medium text-foreground">{value}</div>
+                      <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
                     </div>
                   </CardContent>
                 </Card>

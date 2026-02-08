@@ -1,4 +1,4 @@
-import { Building2, Briefcase } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const experiences = [
@@ -18,40 +18,42 @@ const experiences = [
 
 export const ExperienceTimeline = () => {
   return (
-    <section className="py-16 px-4 border-b border-border" id="experience">
+    <section className="py-12 sm:py-16 px-4 border-b border-border" id="experience">
       <div className="container max-w-4xl">
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <Briefcase className="w-6 h-6 text-primary" />
-            <h2 className="text-2xl font-medium text-foreground">
+            <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-primary shrink-0" />
+            <h2 className="font-display text-xl sm:text-2xl font-medium text-foreground">
               Work Experience
             </h2>
           </div>
-          <p className="text-muted-foreground text-sm ml-9">
+          <p className="text-muted-foreground text-sm ml-8 sm:ml-9">
             Professional journey in AI and software development
           </p>
         </div>
 
-        <div className="space-y-6 ml-9">
-          {experiences.map((exp, index) => (
+        <div className="space-y-4 sm:space-y-6 ml-0 sm:ml-9">
+          {experiences.map((exp) => (
             <Card
               key={exp.title}
               className="border border-border bg-card hover:shadow-md transition-shadow duration-200"
             >
-              <CardContent className="p-6">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                   <div>
-                    <h3 className="text-lg font-medium text-foreground">
+                    <h3 className="text-base sm:text-lg font-medium text-foreground">
                       {exp.title}
                     </h3>
-                    <p className="text-primary font-medium">{exp.company}</p>
+                    <p className="text-primary font-medium text-sm sm:text-base">
+                      {exp.company}
+                    </p>
                     {exp.client && (
                       <p className="text-sm text-muted-foreground">
                         {exp.client}
                       </p>
                     )}
                   </div>
-                  <div className="text-sm text-muted-foreground text-left md:text-right">
+                  <div className="text-sm text-muted-foreground text-left sm:text-right">
                     <p className="font-medium">{exp.period}</p>
                     <p>{exp.location}</p>
                   </div>
