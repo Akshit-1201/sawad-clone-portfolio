@@ -8,6 +8,7 @@ import { TechStack } from "@/components/portfolio/TechStack";
 import { PublicationHighlight } from "@/components/portfolio/PublicationHighlight";
 import { ContactSection } from "@/components/portfolio/ContactSection";
 import { Footer } from "@/components/portfolio/Footer";
+import { FloatingResumeButton } from "@/components/portfolio/FloatingResumeButton";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <PublicationHighlight />
       <ContactSection />
       <Footer />
+      <FloatingResumeButton />
     </main>
   );
 };
