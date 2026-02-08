@@ -12,6 +12,7 @@ import {
   Wrench
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { AnimatedSection } from "./AnimatedSection";
 
 const tools = [
   { name: "Python", category: "Programming", icon: Code2 },
@@ -30,32 +31,33 @@ export const TechStack = () => {
   return (
     <section className="py-12 sm:py-16 px-4 border-b border-border" id="tech-stack">
       <div className="container max-w-6xl">
-        <div className="mb-6 sm:mb-8">
-          <div className="flex items-center gap-3 mb-2">
-            <Wrench className="w-5 h-5 sm:w-6 sm:h-6 text-primary shrink-0" />
-            <h2 className="font-display text-xl sm:text-2xl font-medium text-foreground">
-              Tools & Technologies
-            </h2>
+        <AnimatedSection animation="fade-up">
+          <div className="mb-6 sm:mb-8">
+            <div className="flex items-center gap-3 mb-2">
+              <Wrench className="w-5 h-5 sm:w-6 sm:h-6 text-primary shrink-0" />
+              <h2 className="font-display text-xl sm:text-2xl font-medium text-foreground">
+                Tools & Technologies
+              </h2>
+            </div>
+            <p className="text-muted-foreground text-sm ml-8 sm:ml-9">
+              Technologies and frameworks I use to build scalable solutions.
+            </p>
           </div>
-          <p className="text-muted-foreground text-sm ml-8 sm:ml-9">
-            Technologies and frameworks I use to build scalable solutions.
-          </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 ml-0 sm:ml-9">
-          {tools.map((tool) => (
-            <Card
-              key={tool.name}
-              className="border border-border bg-card hover:shadow-sm hover:border-primary/30 transition-all duration-200 group"
-            >
-              <CardContent className="p-3 sm:p-4 text-center">
-                <tool.icon className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-1.5 sm:mb-2 text-primary" />
-                <h3 className="font-medium text-xs sm:text-sm text-foreground mb-0.5">
-                  {tool.name}
-                </h3>
-                <p className="text-xs text-muted-foreground">{tool.category}</p>
-              </CardContent>
-            </Card>
+          {tools.map((tool, index) => (
+            <AnimatedSection key={tool.name} animation="scale" delay={index * 50}>
+              <Card className="border border-border bg-card hover:shadow-sm hover:border-primary/30 transition-all duration-200 group">
+                <CardContent className="p-3 sm:p-4 text-center">
+                  <tool.icon className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-1.5 sm:mb-2 text-primary" />
+                  <h3 className="font-medium text-xs sm:text-sm text-foreground mb-0.5">
+                    {tool.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground">{tool.category}</p>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
           ))}
         </div>
       </div>
