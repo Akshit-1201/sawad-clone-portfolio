@@ -45,17 +45,17 @@ export const ProjectsGrid = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 ml-0 sm:ml-9">
           {projects.map((project, index) => (
             <AnimatedSection key={project.title} animation="fade-up" delay={index * 100}>
-              <Card className="border border-border bg-card hover:shadow-md transition-shadow duration-200 group h-full">
+              <Card className="border border-border bg-card group h-full transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 hover:border-primary/30">
                 <CardHeader className="pb-2 p-4 sm:p-6 sm:pb-2">
                   <div className="flex items-start justify-between gap-2">
-                    <CardTitle className="text-sm sm:text-base font-medium group-hover:text-primary transition-colors">
+                    <CardTitle className="text-sm sm:text-base font-medium group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </CardTitle>
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1.5 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors shrink-0"
+                      className="p-1.5 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 shrink-0"
                     >
                       <Github className="w-4 h-4" />
                     </a>
@@ -70,7 +70,7 @@ export const ProjectsGrid = () => {
                       <Badge
                         key={tag}
                         variant="secondary"
-                        className="text-xs font-normal"
+                        className="text-xs font-normal transition-colors duration-300 group-hover:bg-primary/10 group-hover:text-primary"
                       >
                         {tag}
                       </Badge>
