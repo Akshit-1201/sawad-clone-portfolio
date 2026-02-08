@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Mail, ArrowRight } from "lucide-react";
+import { Send, Mail, ArrowRight, MessageSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -41,23 +41,26 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 px-4" id="contact">
+    <section className="py-16 px-4 border-b border-border" id="contact">
       <div className="container max-w-4xl">
-        <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Let's <span className="gradient-text">Work Together</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-2">
+            <MessageSquare className="w-6 h-6 text-primary" />
+            <h2 className="text-2xl font-medium text-foreground">
+              Get in Touch
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-sm ml-9">
             Have a project in mind or want to collaborate? I'd love to hear from you.
           </p>
         </div>
 
-        <Card className="glass border-border/50 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          <CardContent className="p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
+        <Card className="border border-border bg-card ml-9">
+          <CardContent className="p-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label htmlFor="name" className="text-sm font-medium text-foreground">
                     Name
                   </label>
                   <Input
@@ -67,11 +70,11 @@ export const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-secondary/50 border-border/50 focus:border-primary"
+                    className="border-border focus:border-primary focus:ring-primary"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
+                <div className="space-y-1.5">
+                  <label htmlFor="email" className="text-sm font-medium text-foreground">
                     Email
                   </label>
                   <Input
@@ -82,13 +85,13 @@ export const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-secondary/50 border-border/50 focus:border-primary"
+                    className="border-border focus:border-primary focus:ring-primary"
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">
+              <div className="space-y-1.5">
+                <label htmlFor="message" className="text-sm font-medium text-foreground">
                   Message
                 </label>
                 <Textarea
@@ -98,42 +101,36 @@ export const ContactSection = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="bg-secondary/50 border-border/50 focus:border-primary resize-none"
+                  rows={4}
+                  className="border-border focus:border-primary focus:ring-primary resize-none"
                 />
               </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting}
-                className="w-full md:w-auto bg-primary hover:bg-primary/90 group"
-              >
-                {isSubmitting ? (
-                  <>
-                    <span className="animate-pulse">Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Send Message</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
-              </Button>
-            </form>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  {isSubmitting ? (
+                    <span>Sending...</span>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </>
+                  )}
+                </Button>
 
-            <div className="mt-8 pt-8 border-t border-border/50 text-center">
-              <p className="text-muted-foreground text-sm mb-3">
-                Or reach out directly:
-              </p>
-              <a
-                href="mailto:akshitnegi.office@gmail.com"
-                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                <span>akshitnegi.office@gmail.com</span>
-              </a>
-            </div>
+                <a
+                  href="mailto:akshitnegi.office@gmail.com"
+                  className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>akshitnegi.office@gmail.com</span>
+                </a>
+              </div>
+            </form>
           </CardContent>
         </Card>
       </div>

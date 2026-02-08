@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const socialLinks = [
   { icon: Linkedin, href: "https://linkedin.com/in/akshit-negi", label: "LinkedIn" },
@@ -8,11 +8,11 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="py-8 px-4 border-t border-border/50">
+    <footer className="py-6 px-4 bg-secondary/30">
       <div className="container max-w-6xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Built with <Heart className="w-4 h-4 text-primary fill-primary" /> by Akshit Negi
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Akshit Negi. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">
@@ -29,10 +29,6 @@ export const Footer = () => {
               </a>
             ))}
           </div>
-
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} All rights reserved.
-          </p>
         </div>
       </div>
     </footer>

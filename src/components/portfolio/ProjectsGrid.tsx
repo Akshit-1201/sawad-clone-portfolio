@@ -1,4 +1,4 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Code2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -25,49 +25,51 @@ const projects = [
 
 export const ProjectsGrid = () => {
   return (
-    <section className="py-20 px-4" id="projects">
+    <section className="py-16 px-4 border-b border-border" id="projects">
       <div className="container max-w-6xl">
-        <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Recent <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-2">
+            <Code2 className="w-6 h-6 text-primary" />
+            <h2 className="text-2xl font-medium text-foreground">
+              Projects
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-sm ml-9">
             From AI security research to industrial automation — building solutions that matter.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-9">
+          {projects.map((project) => (
             <Card
               key={project.title}
-              className="glass border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] group animate-fade-in-up"
-              style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+              className="border border-border bg-card hover:shadow-md transition-shadow duration-200 group"
             >
-              <CardHeader>
+              <CardHeader className="pb-2">
                 <div className="flex items-start justify-between">
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                  <CardTitle className="text-base font-medium group-hover:text-primary transition-colors">
                     {project.title}
                   </CardTitle>
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:bg-secondary transition-colors"
+                    className="p-1.5 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
                   >
-                    <Github className="w-5 h-5" />
+                    <Github className="w-4 h-4" />
                   </a>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-3">
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <Badge
                       key={tag}
                       variant="secondary"
-                      className="bg-primary/10 text-primary hover:bg-primary/20 border-0"
+                      className="text-xs font-normal"
                     >
                       {tag}
                     </Badge>
