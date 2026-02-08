@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Code2 } from "lucide-react";
+import { Github, Code2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -25,43 +25,43 @@ const projects = [
 
 export const ProjectsGrid = () => {
   return (
-    <section className="py-16 px-4 border-b border-border" id="projects">
+    <section className="py-12 sm:py-16 px-4 border-b border-border" id="projects">
       <div className="container max-w-6xl">
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <Code2 className="w-6 h-6 text-primary" />
-            <h2 className="text-2xl font-medium text-foreground">
+            <Code2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary shrink-0" />
+            <h2 className="font-display text-xl sm:text-2xl font-medium text-foreground">
               Projects
             </h2>
           </div>
-          <p className="text-muted-foreground text-sm ml-9">
+          <p className="text-muted-foreground text-sm ml-8 sm:ml-9">
             From AI security research to industrial automation — building solutions that matter.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-9">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 ml-0 sm:ml-9">
           {projects.map((project) => (
             <Card
               key={project.title}
               className="border border-border bg-card hover:shadow-md transition-shadow duration-200 group"
             >
-              <CardHeader className="pb-2">
-                <div className="flex items-start justify-between">
-                  <CardTitle className="text-base font-medium group-hover:text-primary transition-colors">
+              <CardHeader className="pb-2 p-4 sm:p-6 sm:pb-2">
+                <div className="flex items-start justify-between gap-2">
+                  <CardTitle className="text-sm sm:text-base font-medium group-hover:text-primary transition-colors">
                     {project.title}
                   </CardTitle>
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1.5 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                    className="p-1.5 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors shrink-0"
                   >
                     <Github className="w-4 h-4" />
                   </a>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-muted-foreground text-sm leading-relaxed">
+              <CardContent className="space-y-3 p-4 pt-0 sm:p-6 sm:pt-0">
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Mail, ArrowRight, MessageSquare } from "lucide-react";
+import { Mail, ArrowRight, MessageSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -41,24 +41,24 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 border-b border-border" id="contact">
+    <section className="py-12 sm:py-16 px-4 border-b border-border" id="contact">
       <div className="container max-w-4xl">
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <MessageSquare className="w-6 h-6 text-primary" />
-            <h2 className="text-2xl font-medium text-foreground">
+            <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-primary shrink-0" />
+            <h2 className="font-display text-xl sm:text-2xl font-medium text-foreground">
               Get in Touch
             </h2>
           </div>
-          <p className="text-muted-foreground text-sm ml-9">
+          <p className="text-muted-foreground text-sm ml-8 sm:ml-9">
             Have a project in mind or want to collaborate? I'd love to hear from you.
           </p>
         </div>
 
-        <Card className="border border-border bg-card ml-9">
-          <CardContent className="p-6">
+        <Card className="border border-border bg-card ml-0 sm:ml-9">
+          <CardContent className="p-4 sm:p-6">
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label htmlFor="name" className="text-sm font-medium text-foreground">
                     Name
@@ -110,7 +110,7 @@ export const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto"
                 >
                   {isSubmitting ? (
                     <span>Sending...</span>
@@ -127,7 +127,7 @@ export const ContactSection = () => {
                   className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  <span>akshitnegi.office@gmail.com</span>
+                  <span className="break-all">akshitnegi.office@gmail.com</span>
                 </a>
               </div>
             </form>
